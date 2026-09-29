@@ -288,6 +288,7 @@ function deleteBlog(ele){
     })
   }
 })
+
 }
 postForm.addEventListener("submit", onAddBlog)
 UpdatepostBtn.addEventListener("click", onUpdateBlog)

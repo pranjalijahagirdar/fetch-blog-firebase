@@ -39,7 +39,7 @@ function fetchBlog(){
         method : "GET",
         body : null,
         headers : {
-            "content-type" : "application/json",
+            "Content-type" : "application/json",
             "Authorization" : "TOKEN JWT LS",
         }
     })
@@ -102,7 +102,7 @@ function onAddBlog(eve){
         method : "POST",
         body : JSON.stringify(blogObj),
         headers : {
-            "content-type" : "application/json",
+            "Content-type" : "application/json",
         }
     })
     .then(res=>{

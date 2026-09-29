@@ -33,6 +33,31 @@ function hideSpinner(){
     spinner.classList.add('d-none')
 }
 
+function createBlogCards(arr){
+    let result = ``;
+    arr.forEach(blog=>{
+        result += ` <div class="col-md-4 mb-4" id="${blog.id}">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h3>
+                        "${blog.title}"
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                       "${blog.body}"
+                    </p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <button onclick="editBlog(this)" class="btn btn-sm btn-primary">EDIT</button>
+                    <button onclick="deleteBlog(this)" class="btn btn-sm btn-info">DELETE</button>
+                </div>
+            </div>
+        </div>`
+    });
+    postContainer.innerHTML = result;
+}
+
 function fetchBlog(){
     showSpinner()
     fetch(BLOG_URL,{
@@ -62,32 +87,6 @@ function fetchBlog(){
 }
 
 fetchBlog()
-
-function createBlogCards(arr){
-    let result = ``;
-    arr.forEach(blog=>{
-        result += ` <div class="col-md-4 mb-4" id="${blog.id}">
-            <div class="card h-100">
-                <div class="card-header">
-                    <h3>
-                        "${blog.title}"
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <p>
-                       "${blog.body}"
-                    </p>
-                </div>
-                <div class="card-footer d-flex justify-content-between">
-                    <button onclick="editBlog(this)" class="btn btn-sm btn-primary">EDIT</button>
-                    <button onclick="deleteBlog(this)" class="btn btn-sm btn-info">DELETE</button>
-                </div>
-            </div>
-        </div>`
-    });
-    postContainer.innerHTML = result;
-}
-
 //create
 
 function onAddBlog(eve){
